@@ -1,0 +1,584 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mwx0309,博客" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="hexo + github搭建个人博客受张哥stormzhang影响，准备搭建一个自己的个人博客。在经过大家的推荐和自己的筛选，最后决定基于 Hexo 搭建 GitHub 博客，搭建的过程中出现了不少问题，也解决了不少问题，在这里写下来供大家交流学习。  1.软件下载Git 下载安装下载Git像是安装常规的软件，默认安装即可。注意：path 选择如图所示Tips:   出于安全考虑，Git 的默">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/hexo--github搭建个人博客/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="hexo + github搭建个人博客受张哥stormzhang影响，准备搭建一个自己的个人博客。在经过大家的推荐和自己的筛选，最后决定基于 Hexo 搭建 GitHub 博客，搭建的过程中出现了不少问题，也解决了不少问题，在这里写下来供大家交流学习。  1.软件下载Git 下载安装下载Git像是安装常规的软件，默认安装即可。注意：path 选择如图所示Tips:   出于安全考虑，Git 的默">
+<meta property="og:updated_time" content="2017-05-08T07:10:03.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="hexo + github搭建个人博客受张哥stormzhang影响，准备搭建一个自己的个人博客。在经过大家的推荐和自己的筛选，最后决定基于 Hexo 搭建 GitHub 博客，搭建的过程中出现了不少问题，也解决了不少问题，在这里写下来供大家交流学习。  1.软件下载Git 下载安装下载Git像是安装常规的软件，默认安装即可。注意：path 选择如图所示Tips:   出于安全考虑，Git 的默">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title>  | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">mwx0309</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-05-08T14:52:07+08:00" content="2017-05-08">
+              2017-05-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="hexo-github搭建个人博客"><a href="#hexo-github搭建个人博客" class="headerlink" title="hexo + github搭建个人博客"></a>hexo + github搭建个人博客</h2><font face="微软雅黑">受张哥<a href="http://stormzhang.com/" target="_blank" rel="external">stormzhang</a>影响，准备搭建一个自己的个人博客。在经过大家的推荐和自己的筛选，最后决定基于 Hexo 搭建 GitHub 博客，搭建的过程中出现了不少问题，也解决了不少问题，在这里写下来供大家交流学习。<br></font>
+
+<h2 id="1-软件下载"><a href="#1-软件下载" class="headerlink" title="1.软件下载"></a>1.软件下载<br></h2><h3 id="Git-下载安装"><a href="#Git-下载安装" class="headerlink" title="Git 下载安装"></a>Git 下载安装<br></h3><p><font face="微软雅黑">下载<a href="https://git-scm.com/" target="_blank" rel="external">Git</a><br><br>像是安装常规的软件，默认安装即可。<br><br><strong>注意：</strong><br>path 选择如图所示</font><br>Tips:</p>
+<p><font color="#666666" face="黑体"></font></p>
+<blockquote>
+<p>出于安全考虑，Git 的默认设置是只能在 Git Bash 中才能进行Git的相关操作。<br><br>按照上图进行的选择，将会使得Git安装程序在系统PATH中加入Git的相关路径。<br><br>使得你可以在 CMD 界面下调用 Git，不用打开 Git Bash 了。<br></p>
+<h3 id="Node-js-下载安装"><a href="#Node-js-下载安装" class="headerlink" title="Node.js 下载安装"></a>Node.js 下载安装<br></h3><p><font face="微软雅黑">下载<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a><br><br>一路默认安装即可。<br></font><br>Tips:</p>
+<p><font color="#666666" face="黑体"><br>执行如下命令行检测 Git 是否安装成功<br><br><code>git --version</code><br><br><br>执行如下命令行检测 Node.js 是否安装成功<br><br><code>node -v</code><br><br><code>npm -v</code><br><br><br>显示相关的版本号证明安装成功</font></p>
+<h2 id="2-GitHub-设置"><a href="#2-GitHub-设置" class="headerlink" title="2.GitHub 设置"></a>2.GitHub 设置<br></h2><h3 id="GitHub-账号注册"><a href="#GitHub-账号注册" class="headerlink" title="GitHub 账号注册"></a>GitHub 账号注册<br></h3><p><font face="微软雅黑">去 <a href="https://github.com/" target="_blank" rel="external">GitHub</a> 官网注册一个账号，注意要使用邮箱验证。<br></font></p>
+<h3 id="GitHub-账号设置"><a href="#GitHub-账号设置" class="headerlink" title="GitHub 账号设置"></a>GitHub 账号设置<br></h3><p><font face="微软雅黑">登陆主页后新建一个仓库（new repository），命名以 yourname.github.io 的形式，其它项选填，成功创建。<br></font><br>Tips:</p>
+<p><font color="#666666" face="黑体"><br>检测创建成功：<br><br>yourname.github.io 网址可以正常那个打开</font></p>
+<h2 id="3-Hexo-设置"><a href="#3-Hexo-设置" class="headerlink" title="3.Hexo 设置"></a>3.Hexo 设置<br></h2><h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p><font face="微软雅黑">新建空白文件夹，按 Shift +鼠标右键，点击“在此处打开命令行窗口”<br></font></p>
+<p><font face="微软雅黑">分别执行如下两行命令<br></font><br><code>npm install hexo-cli -g</code><br><br><code>npm install hexo --save</code><br><br>Tips:</p>
+<p><font color="#666666" face="黑体"><br>执行如下命令行检测 Hexo 是否安装成功<br><br><code>hexo -v</code><br><br>显示相关的版本号证明安装成功</font></p>
+<h3 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h3><p><font face="微软雅黑">执行如下两行命令<br></font><br><code>hexo init</code><br><br><code>npm install</code><br></p>
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p><font face="微软雅黑">执行如下两行命令<br></font><br><code>hexo g</code><br><br><code>hexo s</code><br><br>Tips:</p>
+<p><font color="#666666" face="黑体"><br>如链接打不开，可执行如下命令更改地址<br><br><code>hexo s -p 5000</code></font></p>
+<h2 id="4-本地-Hexo-与-GitHub-建立连接"><a href="#4-本地-Hexo-与-GitHub-建立连接" class="headerlink" title="4.本地 Hexo 与 GitHub 建立连接"></a>4.本地 Hexo 与 GitHub 建立连接<br></h2><h3 id="使用-SSH-Keys"><a href="#使用-SSH-Keys" class="headerlink" title="使用 SSH Keys"></a>使用 SSH Keys</h3><p><font face="微软雅黑">生成 SSH Key，命令行如下<br></font><br><code>ssh-keygen -t rsa -C &quot;yourmaile@mail.com&quot;</code><br></p>
+<p><font face="微软雅黑">其中“yourmail@mail.com”为你的邮箱，回车后输入密码，注意此处输入时没有任何显示。<br></font><br>Tips:</p>
+<p><font color="#666666" face="黑体"><br>执行如下命令行检测是否成功<br><br><code>ssh -T git@github.com</code><br></font></p>
+<h3 id="配置-SSH-Keys"><a href="#配置-SSH-Keys" class="headerlink" title="配置 SSH Keys"></a>配置 SSH Keys</h3><p><font face="微软雅黑">打开得到的 id_rsa.pub 文件，复制内容，回到 GitHub 页面。 在 Settings 菜单栏下找到 Deploy Keys 栏，然后点击 Add deploy key 按钮，粘贴复制的内容，保存即可。<br></font></p>
+<h3 id="配置-Deployment"><a href="#配置-Deployment" class="headerlink" title="配置 Deployment"></a>配置 Deployment</h3><p><font face="微软雅黑">在 GitHub 页面下，找到 Clone or download 按钮，复制其中 SSH 的值。<br></font></p>
+<p><font face="微软雅黑">打开 Hexo 文件夹，找到 _config.yml 文件并打开，修改如下：<br></font><br><code>deploy:</code><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>type: git</code><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>repo: git@github.com:yourname/yourname.github.io</code><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>branch: master</code><br></p>
+<p><font face="微软雅黑">其中将复制得到的SSH值替换git@github.com:yourname/yourname.github.io<br></font></p>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><p><font face="微软雅黑">执行如下命令行<br></font><br><code>hexo g</code><br><br><code>hexo d</code><br><br><br>Tips:</p>
+<p><font color="#666666" face="黑体"><br><br>在执行 hexo d 命令行时，如果出现了 ERROR Deployer not found:git 的问题，可以执行如下命令行解决<br><br><code>npm install hexo-deployer-git –save</code><br><br></font><br><br></p>
+<p><font face="微软雅黑">大功告成，此时打开 yourname.github.io 就和本地预览效果一样啦！<br></font></p>
+<h2 id="5-更改域名"><a href="#5-更改域名" class="headerlink" title="5.更改域名*"></a>5.更改域名*<br></h2><p><font face="微软雅黑">如果不想更改域名，可以选择忽略这一步，继续使用原有的 GitHub 提供的域名即可。<br></font></p>
+<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p><font face="微软雅黑">在阿里云上购买，价格大约为一年50元左右，我是注册了一个新的账号加上优惠卷：39元/第一年。<br></font></p>
+<h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p><font face="微软雅黑">阿里云有提供的域名解析服务，具体步骤一直在更新，可参考阿里云提供的帮助文档。<br></font></p>
+<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p><font face="微软雅黑">回到 GitHub 页面，在 Settings 菜单栏下找到 Custom domain 添加购买的域名。<br></font><br></p>
+<p><font face="微软雅黑">这样就可以通过自己购买的域名访问自己的博客了，奖励自己一下！但目前只是建造了一个“毛坯房”，具体的优化还得不断完善。<br></font></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><font face="微软雅黑">总的来说基于 Hexo 搭建 GitHub 有三个部分：本地 Hexo 配置、GitHub 配置、本地 Hexo 和 GitHub 建立连接。其中本地 Hexo 配置包括 Git、Node.js、 Hexo 的安装，GitHub 配置包括 GitHub 的账号申请及配置，本地 Hexo 和 GitHub 建立连接为通过 SSH Keys 建立连接。通过以上三部分就建立一个博客的雏形，其他的完善在雏形上加工修改就可以了。<br></font><br></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/weixin.jpg" alt="mwx0309 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/06/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/08/hexo-github搭建个人博客/" rel="prev" title="hexo + github搭建个人博客">
+                hexo + github搭建个人博客 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="mwx0309" />
+          <p class="site-author-name" itemprop="name">mwx0309</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mwx0309/mwx0309.github.io" target="_blank">
+                  
+                    <i class="fa fa-https://github.com/mwx0309/mwx0309.github.io"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-github搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">hexo + github搭建个人博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-软件下载"><span class="nav-number">2.</span> <span class="nav-text">1.软件下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-下载安装"><span class="nav-number">2.1.</span> <span class="nav-text">Git 下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-下载安装"><span class="nav-number">2.2.</span> <span class="nav-text">Node.js 下载安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GitHub-设置"><span class="nav-number">3.</span> <span class="nav-text">2.GitHub 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-账号注册"><span class="nav-number">3.1.</span> <span class="nav-text">GitHub 账号注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-账号设置"><span class="nav-number">3.2.</span> <span class="nav-text">GitHub 账号设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Hexo-设置"><span class="nav-number">4.</span> <span class="nav-text">3.Hexo 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Hexo"><span class="nav-number">4.1.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化-Hexo"><span class="nav-number">4.2.</span> <span class="nav-text">初始化 Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地预览"><span class="nav-number">4.3.</span> <span class="nav-text">本地预览</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-本地-Hexo-与-GitHub-建立连接"><span class="nav-number">5.</span> <span class="nav-text">4.本地 Hexo 与 GitHub 建立连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-SSH-Keys"><span class="nav-number">5.1.</span> <span class="nav-text">使用 SSH Keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-SSH-Keys"><span class="nav-number">5.2.</span> <span class="nav-text">配置 SSH Keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Deployment"><span class="nav-number">5.3.</span> <span class="nav-text">配置 Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交"><span class="nav-number">5.4.</span> <span class="nav-text">提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-更改域名"><span class="nav-number">6.</span> <span class="nav-text">5.更改域名*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#购买域名"><span class="nav-number">6.1.</span> <span class="nav-text">购买域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析域名"><span class="nav-number">6.2.</span> <span class="nav-text">解析域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定域名"><span class="nav-number">6.3.</span> <span class="nav-text">绑定域名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mwx0309</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
