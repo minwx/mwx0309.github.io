@@ -1,0 +1,692 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mwx0309,博客" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="DTD 简介文档类型定义（DTD）定义了 XML 文档中可用的合法属性，可以使用 DTD 指定可以在文档中存在的元素、元素可以具有的属性、在元素内部子元素的层次结构以及元素在整个文档中出现的顺序。 简单理解起来，DTD 就是多个 XML 文件的模版。 比如说，我想要创建的 XML 文件如下：123456789101112131415161718&amp;lt;?xml version=&amp;quot;1.0&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XML-文档类型定义-DTD">
+<meta property="og:url" content="http://yoursite.com/2017/10/12/XML-文档类型定义DTD/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DTD 简介文档类型定义（DTD）定义了 XML 文档中可用的合法属性，可以使用 DTD 指定可以在文档中存在的元素、元素可以具有的属性、在元素内部子元素的层次结构以及元素在整个文档中出现的顺序。 简单理解起来，DTD 就是多个 XML 文件的模版。 比如说，我想要创建的 XML 文件如下：123456789101112131415161718&amp;lt;?xml version=&amp;quot;1.0&amp;">
+<meta property="og:updated_time" content="2017-10-12T08:54:33.106Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XML-文档类型定义-DTD">
+<meta name="twitter:description" content="DTD 简介文档类型定义（DTD）定义了 XML 文档中可用的合法属性，可以使用 DTD 指定可以在文档中存在的元素、元素可以具有的属性、在元素内部子元素的层次结构以及元素在整个文档中出现的顺序。 简单理解起来，DTD 就是多个 XML 文件的模版。 比如说，我想要创建的 XML 文件如下：123456789101112131415161718&amp;lt;?xml version=&amp;quot;1.0&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> XML-文档类型定义-DTD | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">mwx0309</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                XML-文档类型定义-DTD
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-10-12T14:26:52+08:00" content="2017-10-12">
+              2017-10-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="DTD-简介"><a href="#DTD-简介" class="headerlink" title="DTD 简介"></a>DTD 简介</h1><p>文档类型定义（DTD）定义了 XML 文档中可用的合法属性，可以使用 DTD 指定可以在文档中存在的元素、元素可以具有的属性、在元素内部子元素的层次结构以及元素在整个文档中出现的顺序。</p>
+<p>简单理解起来，DTD 就是多个 XML 文件的模版。</p>
+<p>比如说，我想要创建的 XML 文件如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;?&gt;</div><div class="line">&lt;学生名册&gt;</div><div class="line"> &lt;学生 学号=&quot;A1001&quot;&gt;</div><div class="line">       &lt;姓名&gt;李华&lt;/姓名&gt;</div><div class="line">       &lt;性别&gt;男&lt;/性别&gt;</div><div class="line">       &lt;年龄&gt;48&lt;/年龄&gt;</div><div class="line">&lt;/学生&gt;</div><div class="line">&lt;学生 学号=&quot;A1002&quot;&gt;</div><div class="line">       &lt;姓名&gt;韩梅梅&lt;/姓名&gt;</div><div class="line">       &lt;性别&gt;女&lt;/性别&gt;</div><div class="line">       &lt;年龄&gt;19&lt;/年龄&gt;</div><div class="line">&lt;/学生&gt;</div><div class="line">&lt;学生 学号=&quot;A1003&quot;&gt;</div><div class="line">       &lt;姓名&gt;李雷&lt;/姓名&gt;</div><div class="line">       &lt;性别&gt;男&lt;/性别&gt;</div><div class="line">       &lt;年龄&gt;21&lt;/年龄&gt;</div><div class="line">&lt;/学生&gt;</div><div class="line">&lt;/学生名册&gt;</div></pre></td></tr></table></figure></p>
+<p>DTD存在的意义就是帮助规范 XML 代码，比如说根节点是什么，学生的元素和属性有什么，可以有多少学生？这就用到了 XML 文档类型定义——DTD。</p>
+<h1 id="DTD-声明"><a href="#DTD-声明" class="headerlink" title="DTD 声明"></a>DTD 声明</h1><p>DTD 声明分为两类：外部文档声明和内部 DOCTYPE 声明。<br><strong>外部文档声明</strong><br>格式：&lt;!DOCTYPE root-element SYSTEM “filename”&gt;<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE 学生名册 SYSTEM &quot;C:\Users\mwx\Desktop\xmlDTDexample.dtd&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>其中 xmlDTDexample.dtd 文档如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!--被XMLSpy vDTD产生的2012 (http://www.altova.com)--&gt;</div><div class="line">&lt;!ELEMENT 性别 (#PCDATA)&gt;</div><div class="line">&lt;!ELEMENT 年龄 (#PCDATA)&gt;</div><div class="line">&lt;!ELEMENT 学生名册 ((学生+))&gt;</div><div class="line">&lt;!ELEMENT 学生 ((姓名, 性别, 年龄))&gt;</div><div class="line">&lt;!ATTLIST 学生</div><div class="line">	学号 (A1003 | A1002 | A1001) #REQUIRED</div><div class="line">&gt;</div><div class="line">&lt;!ELEMENT 姓名 (#PCDATA)&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>内部 DOCTYPE 声明</strong><br>格式：&lt;!DOCTYPE root-element [element-declarations]&gt;<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;?&gt;</div><div class="line">&lt;!DOCTYPE 学生名册 [</div><div class="line">&lt;!ELEMENT 学生名册 ((学生+))&gt;</div><div class="line">&lt;!ELEMENT 学生 ((姓名, 性别, 年龄))&gt;</div><div class="line">&lt;!ATTLIST 学生</div><div class="line">	学号 (A1001 | A1002 | A1003) #REQUIRED</div><div class="line">&gt;</div><div class="line">&lt;!ELEMENT 姓名 (#PCDATA)&gt;</div><div class="line">&lt;!ELEMENT 性别 (#PCDATA)&gt;</div><div class="line">&lt;!ELEMENT 年龄 (#PCDATA)&gt;</div><div class="line">]&gt;</div><div class="line"></div><div class="line">&lt;学生名册&gt;</div><div class="line"> &lt;学生 学号=&quot;A1001&quot;&gt;</div><div class="line">       &lt;姓名&gt;李华&lt;/姓名&gt;</div><div class="line">       &lt;性别&gt;男&lt;/性别&gt;</div><div class="line">       &lt;年龄&gt;48&lt;/年龄&gt;</div><div class="line">&lt;/学生&gt;</div><div class="line">&lt;学生 学号=&quot;A1002&quot;&gt;</div><div class="line">       &lt;姓名&gt;韩梅梅&lt;/姓名&gt;</div><div class="line">       &lt;性别&gt;女&lt;/性别&gt;</div><div class="line">       &lt;年龄&gt;19&lt;/年龄&gt;</div><div class="line">&lt;/学生&gt;</div><div class="line">&lt;学生 学号=&quot;A1003&quot;&gt;</div><div class="line">       &lt;姓名&gt;李雷&lt;/姓名&gt;</div><div class="line">       &lt;性别&gt;男&lt;/性别&gt;</div><div class="line">       &lt;年龄&gt;21&lt;/年龄&gt;</div><div class="line">&lt;/学生&gt;</div><div class="line">&lt;/学生名册&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="DTD-构建模块"><a href="#DTD-构建模块" class="headerlink" title="DTD 构建模块"></a>DTD 构建模块</h1><p>DTD 构建模块由元素、属性、实体组成</p>
+<h2 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h2><p>格式：&lt;!ELEMENT element-name category&gt;<br>分类：<br><strong>ANY 元素类型</strong> &lt;!ELEMENT element-name ANY&gt;<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ELEMENT 学生手册 ANY&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>EMPTY 元素类型</strong> &lt;!ELEMENT element-name EMPTY&gt;<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ELEMENT br EMPTY&gt;</div></pre></td></tr></table></figure></p>
+<p>即对应 HTML 中的br 标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ELEMENT 学生 EMPTY&gt;</div></pre></td></tr></table></figure></p>
+<p>则<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;学生 学号=&quot;A1003&quot;&gt;</div><div class="line">       &lt;姓名&gt;李雷&lt;/姓名&gt;</div><div class="line">       &lt;性别&gt;男&lt;/性别&gt;</div><div class="line">       &lt;年龄&gt;21&lt;/年龄&gt;</div><div class="line">&lt;/学生&gt;</div></pre></td></tr></table></figure></p>
+<p>不合法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;学生 姓名=&quot;李雷&quot; 性别=&quot;男&quot; 年龄=&quot;21&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p>是合法的<br><strong>父元素类型</strong> &lt;!ELEMENT element-name(A,B+,C*,D?)&gt;<br>即是只包含子元素，不包含文本的元素<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ELEMENT 学生 ((姓名, 性别？, 年龄*，爱好+))&gt;</div></pre></td></tr></table></figure></p>
+<p>符号代表的含义如下</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>元素不出现或出现一次</td>
+</tr>
+<tr>
+<td>*</td>
+<td>元素不出现或出现多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>元素出现一次以上</td>
+</tr>
+<tr>
+<td>无符号</td>
+<td>元素只出现一次</td>
+</tr>
+</tbody>
+</table>
+<p><strong>#PCDATA元素类型</strong> &lt;!ELEMENT element-name(#PCDATA)&gt;<br>即是只包含文本，不包含子元素的元素<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!ELEMENT 姓名 (#PCDATA)&gt;</div><div class="line">&lt;!ELEMENT 性别 (#PCDATA)&gt;</div><div class="line">&lt;!ELEMENT 年龄 (#PCDATA)&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>混合元素类型</strong><br>即是包含子元素和文本数据的混合元素（最好不使用）<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ELEMENT element (#PCDATA|element2|element3)&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>格式：&lt;!ATTLIST element-name attribute-name attribute-type attribute-value&gt;<br>即是 &lt;!ATTLIST 元素名 属性名 属性类型 属性值&gt;<br>属性类型如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CDATA</td>
+<td>纯文本</td>
+</tr>
+<tr>
+<td>Enumerated</td>
+<td>取值是列表中的一个值</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>值为唯一的 id</td>
+</tr>
+<tr>
+<td>IDREF</td>
+<td>值为另外一个元素的 id</td>
+</tr>
+<tr>
+<td>IDREFS</td>
+<td>值为其他 id 的列表</td>
+</tr>
+<tr>
+<td>NMTOKEN</td>
+<td>值为合法的 XML 名称</td>
+</tr>
+<tr>
+<td>NMTOKENS</td>
+<td>值为合法的 XML 名称的列表</td>
+</tr>
+<tr>
+<td>ENTITY</td>
+<td>值是一个实体</td>
+</tr>
+<tr>
+<td>ENTITIES</td>
+<td>值是一个实体列表</td>
+</tr>
+<tr>
+<td>NOTATION</td>
+<td>此值是符号的名称</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CDATA 类型</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST 学生 姓名 CDATA &quot;李华&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>对应 XML 文档：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;学生 姓名=&quot;李华&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>Enumerated 类型</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST 学生 学号 (A1001 | A1002 | A1003)&gt;</div></pre></td></tr></table></figure></p>
+<p>对应 XML 文档：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;学生 学号=&quot;A1001&quot;/&gt;</div><div class="line">&lt;学生 学号=&quot;A1002&quot;/&gt;</div><div class="line">&lt;学生 学号=&quot;A1003&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>ID 类型</strong><br>该属性的取值唯一且必须以字母开头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST 学生 考号 ID&gt;</div></pre></td></tr></table></figure></p>
+<p>对应 XML 文档：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;学生 考号=&quot;G1001&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>IDREF/IDREFS 类型</strong><br>IDREF 属性的值指向文档中其他地方声明的 ID 类型的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST 学生 入学号码 IDREF&gt;</div></pre></td></tr></table></figure></p>
+<p>对应 XML 文档：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;学生 入学号码=&quot;G1001&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p>当属性类型为 IDREFS 时，对应多个 ID</p>
+<p>其他的就不一一举例</p>
+<p>属性特点如下：</p>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#REQUIRED</td>
+<td>必须赋值</td>
+</tr>
+<tr>
+<td>#IMPLIED</td>
+<td>属性值可有可无</td>
+</tr>
+<tr>
+<td>#FIXED value</td>
+<td>固定取值</td>
+</tr>
+<tr>
+<td>Default value</td>
+<td>事先确定了默认值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>#REQUIRED</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST 学生 考号 CDATA #REQUIRED&gt;</div></pre></td></tr></table></figure></p>
+<p>此时考号属性就必须赋值<br><strong>#IMPLIED</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST 学生 考号 CDATA #IMPLIED&gt;</div></pre></td></tr></table></figure></p>
+<p>此时考号属性可以不被赋值，也可以赋值<br><strong>#FIXED</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST 学生 考号 CDATA #FIXED &quot;10001&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>此时考号属性就只能取固定值10001</p>
+<h2 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h2><p>内部调用格式：&lt;!ENTITY entity-name “entity-value”&gt;<br>外部调用格式：&lt;!ENTITY entity-name SYSTEM “URI/URL”&gt;<br>可以理解为宏定义，即是多次在 XML 文档中使用同一个字符<br><strong>预定义实体</strong><br>XML 文档中预先保留的实体，包括尖括号（左和右）、引用符号&amp;、单引号、双引号</p>
+<p><strong>注意：调用时一定要包括三部分，&amp;、字符、分号</strong></p>
+<p><strong>自定义实体</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ENTITY name &quot;hello world&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>此时在 XML 文档中就可以使用 &name; 来表示”hello world”了</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>通过 DTD，每一个 XML 文件均可携带一个有关其自身格式的描述<br>通过 DTD，独立的团体可一致地使用某个标准的 DTD 来交换数据<br>而应用程序也可使用某个标准的 DTD 来验证从外部接收到的数据<br>还可以使用 DTD 来验证自身的数据<br>但 XML Schema 很快会将 DTD 取而代之，用在大部分的网络应用程序中。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/weixin.jpg" alt="mwx0309 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/12/hexo-github搭建个人博客/" rel="next" title="Hexo + Github搭建个人博客">
+                <i class="fa fa-chevron-left"></i> Hexo + Github搭建个人博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="mwx0309" />
+          <p class="site-author-name" itemprop="name">mwx0309</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mwx0309/mwx0309.github.io" target="_blank">
+                  
+                    <i class="fa fa-https://github.com/mwx0309/mwx0309.github.io"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DTD-简介"><span class="nav-number">1.</span> <span class="nav-text">DTD 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DTD-声明"><span class="nav-number">2.</span> <span class="nav-text">DTD 声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DTD-构建模块"><span class="nav-number">3.</span> <span class="nav-text">DTD 构建模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#元素"><span class="nav-number">3.1.</span> <span class="nav-text">元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">3.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实体"><span class="nav-number">3.3.</span> <span class="nav-text">实体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mwx0309</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
