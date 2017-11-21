@@ -1,0 +1,565 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="概念1.事务：事务是 SQL Server 的单个逻辑单元，一个事务内的所有 SQL 语句作为一个整体执行，要么全部执行，要么全部不执行。2.事务的特性：ACID（原子性、一致性、隔离性、持久性）。3.原子性（Atomicity）。事务是最小的逻辑单元，全部执行或全部不执行。4.一致性（Consistency）。事务在完成时，必须使所有数据都保持一致状态。5.隔离性（Isolation）。事务和事">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Server 事务">
+<meta property="og:url" content="http://yoursite.com/2017/11/21/SQL-Server-事务/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概念1.事务：事务是 SQL Server 的单个逻辑单元，一个事务内的所有 SQL 语句作为一个整体执行，要么全部执行，要么全部不执行。2.事务的特性：ACID（原子性、一致性、隔离性、持久性）。3.原子性（Atomicity）。事务是最小的逻辑单元，全部执行或全部不执行。4.一致性（Consistency）。事务在完成时，必须使所有数据都保持一致状态。5.隔离性（Isolation）。事务和事">
+<meta property="og:image" content="https://i.imgur.com/Jy93oWq.png">
+<meta property="og:updated_time" content="2017-11-21T15:14:57.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL Server 事务">
+<meta name="twitter:description" content="概念1.事务：事务是 SQL Server 的单个逻辑单元，一个事务内的所有 SQL 语句作为一个整体执行，要么全部执行，要么全部不执行。2.事务的特性：ACID（原子性、一致性、隔离性、持久性）。3.原子性（Atomicity）。事务是最小的逻辑单元，全部执行或全部不执行。4.一致性（Consistency）。事务在完成时，必须使所有数据都保持一致状态。5.隔离性（Isolation）。事务和事">
+<meta name="twitter:image" content="https://i.imgur.com/Jy93oWq.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> SQL Server 事务 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">mwx0309</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SQL Server 事务
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-11-21T21:07:02+08:00" content="2017-11-21">
+              2017-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>1.事务：事务是 SQL Server 的单个逻辑单元，一个事务内的所有 SQL 语句作为一个整体执行，要么全部执行，要么全部不执行。<br>2.事务的特性：ACID（原子性、一致性、隔离性、持久性）。<br>3.原子性（Atomicity）。事务是最小的逻辑单元，全部执行或全部不执行。<br>4.一致性（Consistency）。事务在完成时，必须使所有数据都保持一致状态。<br>5.隔离性（Isolation）。事务和事务之间不能有时间重叠部分，各个事务之间相互隔离。<br>6.持久性（Durability）。事务完成之后，对系统的影响是永久的。</p>
+<h2 id="分类及实现"><a href="#分类及实现" class="headerlink" title="分类及实现"></a>分类及实现</h2><p>一、显式事务：就是用户定义或指定的事务，通过指定的语句来执行。<br>1.启动事务<code>Begin Transaction</code><br>2.提交事务<code>Commit Transaction</code><br>3.回滚事务<code>Rollback Transaction</code><br>4.设置保存点<code>Save Transaction</code><br>二、自动提交事务：SQL Server 的默认事务管理模式。<br>三、隐式事务：SQL Server 在提交或回滚当前事务后自动开启新的事务。<br>启动方式<code>set implicit_transactions on</code></p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>这是一个图书管理系统的数据库表，执行的操作是学生借书，插入一个结束记录，流程如下图：<br><img src="https://i.imgur.com/Jy93oWq.png" alt=""><br>相关的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">USE MBOOK</div><div class="line">GO</div><div class="line">CREATE PROCEDURE Book_Borrow @in_ReaderID char(6), @in_ISBN char(18), </div><div class="line">			     @in_BookID char(10),  @out_str char(30)  OUTPUT</div><div class="line">AS</div><div class="line">BEGIN</div><div class="line">	/*判断是否存在该读者*/</div><div class="line">	IF NOT EXISTS(SELECT * FROM TReader WHERE 借书证号=@in_ReaderID)</div><div class="line">	BEGIN</div><div class="line">		SET @out_str= &apos;该读者不存在&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	/*判断是否存在该图书*/</div><div class="line">	IF NOT EXISTS(SELECT * FROM TBook WHERE ISBN=@in_ISBN)</div><div class="line">	BEGIN</div><div class="line">		SET @out_str= &apos;该图书不存在&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	/*判断借书量是否已经到了借书上限数5*/</div><div class="line">	IF (SELECT 借书量 FROM TReader WHERE 借书证号=@in_ReaderID)=5</div><div class="line">	BEGIN</div><div class="line">		SET @out_str= &apos;读者借书量不能大于5&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	/*判断库存量是否为0*/</div><div class="line">	IF (SELECT 库存量 FROM TBook WHERE ISBN=@in_ISBN)=0</div><div class="line">	BEGIN</div><div class="line">		SET @out_str= &apos;图书库存量为0&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	/*判断读者是否已经借过该书*/</div><div class="line">	IF @in_ISBN IN (SELECT ISBN FROM TLend WHERE 借书证号=@in_ReaderID)</div><div class="line">	BEGIN</div><div class="line">		SET @out_str= &apos;读者已经借过该书&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	/*判断该书是否已经被借*/</div><div class="line">	IF EXISTS(SELECT * FROM TLend WHERE 图书ID=@in_BookID)</div><div class="line">	BEGIN</div><div class="line">		SET @out_str= &apos;该图书ID已存在&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line"></div><div class="line">	BEGIN TRAN					/*开始一个事务*/</div><div class="line">	/*插入借书记录*/</div><div class="line">	INSERT INTO TLend(借书证号, ISBN, 图书ID, 借书时间) </div><div class="line">			VALUES(@in_ReaderID, @in_ISBN, @in_BookID, GETDATE())</div><div class="line">	IF @@ERROR&gt;0				/*如果前面一条SQL语句出错则回滚事务并返回*/</div><div class="line">	BEGIN</div><div class="line">		ROLLBACK TRAN</div><div class="line">		SET @out_str= &apos;执行过程中遇到错误&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	UPDATE TReader SET 借书量=借书量+1 WHERE 借书证号=@in_ReaderID</div><div class="line">	IF @@ERROR&gt;0				/*如果前面一条SQL语句出错则回滚事务并返回*/</div><div class="line">	BEGIN</div><div class="line">		ROLLBACK TRAN</div><div class="line">		SET @out_str= &apos;执行过程中遇到错误&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	UPDATE TBook SET 库存量=库存量-1 WHERE ISBN=@in_ISBN</div><div class="line">	IF @@ERROR&gt;0				/*如果前面一条SQL语句出错则回滚事务并返回*/</div><div class="line">	BEGIN</div><div class="line">		ROLLBACK TRAN</div><div class="line">		SET @out_str= &apos;执行过程中遇到错误&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">	UPDATE TBLend SET 是否借出=1 WHERE 图书ID=@in_BookID</div><div class="line">	IF @@ERROR=0				/*如果所有语句都不出错则结束事务并返回*/</div><div class="line">	BEGIN</div><div class="line">		COMMIT TRAN</div><div class="line">		SET @out_str= &apos;借书成功&apos;</div><div class="line">		RETURN 1</div><div class="line">	END</div><div class="line">	ELSE 						/*如果执行出错则回滚所有操作并返回*/</div><div class="line">	BEGIN</div><div class="line">		ROLLBACK TRAN</div><div class="line">		SET @out_str= &apos;执行过程中遇到错误&apos;</div><div class="line">		RETURN 0</div><div class="line">	END</div><div class="line">END</div></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.事务是一系列的数据库操作，是数据库应用程序的基本单元。<br>2.事务处理技术包括数据库恢复技术和并发控制技术。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/weixin.jpg" alt="mwx0309 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag">#数据库</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/12/XML-文档类型定义DTD/" rel="next" title="XML-文档类型定义-DTD">
+                <i class="fa fa-chevron-left"></i> XML-文档类型定义-DTD
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="mwx0309" />
+          <p class="site-author-name" itemprop="name">mwx0309</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mwx0309/mwx0309.github.io" target="_blank">
+                  
+                    <i class="fa fa-https://github.com/mwx0309/mwx0309.github.io"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类及实现"><span class="nav-number">2.</span> <span class="nav-text">分类及实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mwx0309</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
